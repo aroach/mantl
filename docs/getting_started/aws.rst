@@ -108,6 +108,27 @@ your cluster with Terraform.
 
 .. image:: /_static/aws_iam_attach_route53_policy.png
    :alt: IAM User attach route 53 policy
+   
+.. note:: If using Route 53, you will also need to configure the following policies:
+
+.. code-block:: json
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1465860226000",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetServerCertificate",
+                "iam:UploadServerCertificate"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
 
 Provider Settings
 ^^^^^^^^^^^^^^^^^^
